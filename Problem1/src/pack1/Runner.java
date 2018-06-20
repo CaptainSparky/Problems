@@ -11,7 +11,7 @@ public class Runner {
 
 		String[] testans = new String[100000];
 		Lettercombo lettercombo = new Lettercombo();
-		lettercombo.fill(0);
+		lettercombo.fill();
 		int temp = 0;
 		do {
 			testans[temp] = lettercombo.convert();
@@ -27,13 +27,6 @@ public class Runner {
 
 	}
 
-	/*
-	 * private static String[] cheakdupes(String[] testans) { for(Object el :
-	 * testans)
-	 * 
-	 * 
-	 * return testans; }
-	 */
 
 	private static int getLength(String[] testans) {
 		int count = 0;

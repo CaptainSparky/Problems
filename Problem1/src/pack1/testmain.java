@@ -10,48 +10,28 @@ public class testmain {
 
 	@Test
 	public void testconvert() {
-		Lettercombo lettercombo = new Lettercombo();
-		assert(lettercombo.convert() != null);
-		assert(lettercombo.convert().equals("AAA"));
+		Lettercombo lettercombolength3 = new Lettercombo();
+		assert (lettercombolength3.convert() != null);
+		assert (lettercombolength3.convert().equals("AAA"));
 	}
+
 	@Test
 	public void testfill() {
-		Lettercombo lettercombo = new Lettercombo();
-		lettercombo.fill(1);
-		assert(lettercombo.convert() != null);
-		assert(lettercombo.convert().equals("BCD"));
-		lettercombo.fill(0);
-		assert(lettercombo.convert().equals("ABC"));
-	}
-/*
-	@Test
-	public void testincremtn() {
-		Lettercombo lettercombo = new Lettercombo();
-		lettercombo.fill(1);
-		assert(lettercombo.increment() == true);
-		assert(lettercombo.increment() == true);
-		lettercombo.fill(99);
-		assert(lettercombo.increment() != true);
-		lettercombo.fill(9);
-		assert(lettercombo.increment() != true);
-	}
-	
-	
-	@Test
-	public void testcomparecurrent() {
-		Lettercombo lettercombo = new Lettercombo();
-		lettercombo.fill(1);
-		assert(lettercombo.comparecurrent() != true);
-	}
-	
+		Lettercombo lettercombolength3 = new Lettercombo();
+		lettercombolength3.fill();
+		assert (lettercombolength3.convert() != null);
+		assert (lettercombolength3.convert().equals("ABC"));
+		Lettercombo lettercombolength4 = new Lettercombo(4);
+		lettercombolength4.fill();
+		assert (lettercombolength4.convert().equals("ABCD"));
 
-	
+	}
+
 	@Test
 	public void testans() {
 		Lettercombo lettercombo = new Lettercombo();
-		lettercombo.fill(0);
-		assert(Runner.computation() != 512 );
+		lettercombo.fill();
+		assert (Runner.computation() != 512);
 	}
-	*/
-}
 
+}
