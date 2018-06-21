@@ -5,7 +5,7 @@ public class Lettercombo {
 	private int[] digits;
 	int maxlengt = 3;
 	int maxhight = 8;
-
+	int maxlengtarray = maxlengt-1;
 	public Lettercombo() {
 
 		digits = new int[maxlengt];
@@ -14,6 +14,7 @@ public class Lettercombo {
 
 	public Lettercombo(int i) {
 		maxlengt = i;
+		maxlengtarray = i-1;
 		digits = new int[maxlengt];
 	}
 
@@ -29,7 +30,7 @@ public class Lettercombo {
 	public void fill() {
 		int lengt = 0;
 		int hight = 0;
-		while (hight <= maxhight && lengt < maxlengt) {
+		while (hight < maxhight && lengt < maxlengt) {
 			digits[lengt] = hight;
 			System.out.println(digits[lengt]);
 			hight++;
@@ -44,20 +45,27 @@ public class Lettercombo {
 		for (int digit : digits) {
 			char letter = (char) ('A' + digit);
 			retval += letter;
-			System.out.println(retval);
 		}
 		return retval;
 	}
 
 	public boolean increment() {
-		digits[maxlengt-1]++;
+		digits[maxlengtarray]++;
 
-		for (int i = maxlengt-1; i >= 0; i--) {
-			if (digits[i] < maxhight - (maxlengt - i)) {
+		for (int i = maxlengtarray; i >= 0; i--) {
+			if (digits[i] > maxhight - (maxlengtarray - i)) {
 				digits[i-1]++;
-				digits[i] = digits[i-1]++;
+				for(int j = i; j < maxlengt;){
+					digits[j] = digits[j-1]+1;
+					j++;
+				}
+
 			}
 		}
+		if  (digits[maxlengtarray] > maxhight){
+			
+		}
+			
 		boolean notend;
 		notend = digits[0] < (maxhight - maxlengt);
 		return notend;
